@@ -12,10 +12,11 @@ class Place_info(models.Model):
     road_adr = models.CharField(max_length=500)                 #도로명주소
     num_adr = models.CharField(max_length=500)                  #지번주소
     tel = models.CharField(max_length=13)                       #전화번호
-    created_date = models.DateTimeField(default=timezone.now)   #작성일시
-
+    created_date = models.DateTimeField(
+        blank=True, null=True) #작성일시
+    
     def publish(self):
-        ##self.created_date = timezone.now()
+        self.created_date = timezone.now()
         self.save()
 
     def __str__(self):

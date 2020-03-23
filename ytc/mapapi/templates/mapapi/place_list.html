@@ -22,7 +22,7 @@
                         <br><br>
                             <div>
                                 <p>작성자 : {{ post.author }}</p>
-                                <p>맛집이름 : {{ post.title }}</p>
+                                <p>맛집명 : {{ post.title }}</p>
                                 <p>도로명주소 : {{ post.road_adr }}</p>
                                 <p>지번주소 : {{ post.num_adr }}</p>
                                 <p>위도 : {{ post.lat }}</p>
@@ -35,18 +35,6 @@
                     <br><br>
                 </div>
             </div>
-
-            	<div id="map" style="width:500px;height:400px;"></div>
-                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4047994dae5f156e4a47f71f7d406a4f"></script>
-                    <script>
-                        var container = document.getElementById('map');
-                        var options = {
-                            center: new kakao.maps.LatLng(33.450701, 126.570667),
-                            level: 3
-                        };
-
-                        var map = new kakao.maps.Map(container, options);
-                    </script>
         </div>
     </body>
 </html>

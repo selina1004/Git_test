@@ -332,16 +332,15 @@
             </script>
 
             <form method="POST" class="post-form">
-
-                <label for="title">　맛집이름&nbsp;</label><input type="text" name="title" id="title"/>
+                {% csrf_token %}
+                <label for="title">　맛집명&nbsp;</label><input type="text" name="title" id="title"/>
                 <label for="author">　　작성자&nbsp;</label><input type="text" name="author" id="author"/><br>
                 <label for="lat">　　　위도&nbsp;</label><input id="lat" name="lat" type="text"/>
                 <label for="lng">　　　경도&nbsp;</label><input id="lng" type="text" name="lng"/>
-                <br><label for="road_adr">도로명주소&nbsp;</label><input id="road_adr" type="text" name="road_adr" size="58"/>
-                <br><label for="num_adr">　지번주소&nbsp;</label><input id="num_adr" type="text" name="num_adr" size="58"/><br>
+                <br><label for="road_adr">도로명주소&nbsp;</label><input id="road_adr" type="text" name="road_adr" size="56"/>
+                <br><label for="num_adr">　지번주소&nbsp;</label><input id="num_adr" type="text" name="num_adr" size="56"/><br>
                 <label for="tel">　전화번호&nbsp;</label><input type="tel" name="tel" id="tel"/>
-                <label for="created_date">　등록일시&nbsp;</label><input type="text" name="created_date" id="created_date"/>
-                　　　　
+                　　　　　　　　　
                 <button type="submit" class="save btn btn-default">마음속에 저장</button>
             </form>
         </div>

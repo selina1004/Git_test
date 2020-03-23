@@ -15,7 +15,7 @@ def place_new(request):
             place_info = form.save(commit=False)
             place_info.created_date = timezone.now()
             place_info.save()
-            return redirect('place_new', pk=place_info.pk)
+            return redirect('/')
     else:
         form = RegisterForm()
     return render(request, 'mapapi/place_new.html', {'form': form})
