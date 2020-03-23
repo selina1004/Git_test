@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <title>판천지-판교맛집천가지</title>
+
+    </head>
+    <body leftmargin="70" topmargin="50">
+
+    <h2 style="margin-left:230px">★ <font color="red">판</font>교 맛집 <font color="red">천</font>가<font color="red">지</font> ★</h2>
+        <a href="{% url 'place_list' %}" style="margin-left:230px"><button type="submit" class="save btn btn-default">조회하러가기</button></a> &nbsp;&nbsp;
+        <a href="{% url 'place_new' %}"><button type="submit" class="save btn btn-default">등록하러가기</button></a>
+        <br><br>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4><b>내가 등록한 맛집 리스트</b></h4>
+                    ______________________________________________________________
+
+                    {% for post in posts %}
+                        <br><br>
+                            <div>
+                                <p>작성자 : {{ post.author }}</p>
+                                <p>맛집이름 : {{ post.title }}</p>
+                                <p>도로명주소 : {{ post.road_adr }}</p>
+                                <p>지번주소 : {{ post.num_adr }}</p>
+                                <p>위도 : {{ post.lat }}</p>
+                                <p>경도 : {{ post.lng }}</p>
+                                <p>전화번호 : {{ post.tel }}</p>
+                                <p>등록일시 : {{ post.created_date }}</p>
+                            </div>
+                        ______________________________________________________________
+                    {% endfor %}
+                    <br><br>
+                </div>
+            </div>
+
+            	<div id="map" style="width:500px;height:400px;"></div>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4047994dae5f156e4a47f71f7d406a4f"></script>
+                    <script>
+                        var container = document.getElementById('map');
+                        var options = {
+                            center: new kakao.maps.LatLng(33.450701, 126.570667),
+                            level: 3
+                        };
+
+                        var map = new kakao.maps.Map(container, options);
+                    </script>
+        </div>
+    </body>
+</html>

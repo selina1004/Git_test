@@ -1,0 +1,18 @@
+{% extends 'selina01/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="name">
+                <p>{{ post.name }}</p>
+            </div>
+
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.content|linebreaksbr }}</p>
+            <p>{{ post.created }}</p>
+        </div>
+    {% endfor %}
+    ______________________________________________________________
+
+
+{% endblock %}
